@@ -1,82 +1,82 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void preencher(int M[][5], int tamanho)
+void fillMatrix(int M[][5], int size)
 {
-    for (int i = 0; i < tamanho; i++)
+    for (int i = 0; i < size; i++)
     { 
-        for (int j = 0; j < tamanho; j++)
+        for (int j = 0; j < size; j++)
         {
-            printf("Preencha o elemento [%d][%d]: ", i, j);
+            printf("Enter the element at [%d][%d]: ", i, j);
             scanf("%d", &M[i][j]);
         }
     }
 }
 
-int calcA(int M[][5])
+int calculateA(int M[][5])
 {
-    int soma = 0;
+    int sum = 0;
     for (int i = 0; i < 5; i++)
     {
-        soma += M[3][i];
+        sum += M[3][i];
     }
-    return soma;
+    return sum;
 }
 
-int calcB(int M[][5])
+int calculateB(int M[][5])
 {
-    int soma = 0;
+    int sum = 0;
     for (int i = 0; i < 5; i++)
     {
-        soma += M[i][1];
+        sum += M[i][1];
     }
-    return soma;
+    return sum;
 }
 
-int calcC(int M[][5])
+int calculateC(int M[][5])
 {
-    int soma = 0;
+    int sum = 0;
     for (int i = 0; i < 5; i++)
     {
-        soma += M[i][i];
+        sum += M[i][i];
     }
-    return soma;
+    return sum;
 }
 
-int calcD(int M[][5])
+int calculateD(int M[][5])
 {
-    int soma = 0;
+    int sum = 0;
     for (int i = 0; i < 5; i++)
     {
-        soma += M[i][4 - i];
+        sum += M[i][4 - i];
     }
-    return soma;
+    return sum;
 }
 
-int calcE(int M[][5])
+int calculateE(int M[][5])
 {
-    int soma = 0;
+    int sum = 0;
     for (int i = 0; i < 5; i++)
     {
         for (int j = 0; j < 5; j++)
         {
-            soma += M[i][j];
+            sum += M[i][j];
         }
     }
-    return soma;
+    return sum;
 }
 
 int main(void)
 {
     int M[5][5];
 
-    preencher(M, 5);
+    fillMatrix(M, 5);
 
-    printf("A soma da linha 4 e: %d\n", calcA(M));
-    printf("A soma da coluna 2 e: %d\n", calcB(M));
-    printf("A soma da diagonal principal e: %d\n", calcC(M));
-    printf("A soma da diagonal secundária e: %d\n", calcD(M));
-    printf("A soma de todos os elementos da matriz e: %d\n", calcE(M));
+    printf("The sum of the elements in row 4 is: %d\n", calculateA(M));
+    printf("The sum of the elements in column 2 is: %d\n", calculateB(M));
+    printf("The sum of the elements in the main diagonal is: %d\n", calculateC(M));
+    printf("The sum of the elements in the secondary diagonal is: %d\n", calculateD(M));
+    printf("The sum of all elements in the matrix is: %d\n", calculateE(M));
 
     return 0;
 }
