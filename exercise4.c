@@ -3,19 +3,19 @@
 
 int main(void)
 {
-    int temperatura[31];
-    int maiorTemperatura = 0, menorTemperatura = 41, soma = 0;
-    float temperaturaMedia;
+    int temperature[31];
+    int highestTemperature = 0, lowestTemperature = 41, sum = 0;
+    float averageTemperature;
     int count = 0;
 
     for (int i = 0; i < 31; i++)
     {
-        printf("Digite a temperatura do %dº dia de janeiro: ", i + 1);
-        scanf("%d", &temperatura[i]);
+        printf("Enter the temperature for day %d of January: ", i + 1);
+        scanf("%d", &temperature[i]);
 
-        if (temperatura[i] < 15 || temperatura[i] > 40)
+        if (temperature[i] < 15 || temperature[i] > 40)
         {
-            printf("Temperatura invalida. Digite novamente.\n");
+            printf("Invalid temperature. Please enter again.\n");
             i--;
             continue;
         }
@@ -23,32 +23,32 @@ int main(void)
 
     for (int j = 0; j < 31; j++)
     {
-        if (maiorTemperatura < temperatura[j])
+        if (highestTemperature < temperature[j])
         {
-            maiorTemperatura = temperatura[j];
+            highestTemperature = temperature[j];
         }
 
-        if (menorTemperatura > temperatura[j])
+        if (lowestTemperature > temperature[j])
         {
-            menorTemperatura = temperatura[j];
+            lowestTemperature = temperature[j];
         }
 
-        soma += temperatura[j];
-        temperaturaMedia = (float)soma / 31;
+        sum += temperature[j];
+        averageTemperature = (float)sum / 31;
     }
 
     for (int k = 0; k < 31; k++)
     {
-        if (temperatura[k] < temperaturaMedia)
+        if (temperature[k] < averageTemperature)
         {
             count++;
         }
     }
 
-    printf("A maior temperatura ocorria foi: %d°C\n", maiorTemperatura);
-    printf("A menor temperatura ocorria foi: %d°C\n", menorTemperatura);
-    printf("A temperatura média ocorria foi: %.2f°C\n", temperaturaMedia);
-    printf("O número de dias nos quais a temperatura foi inferior a temperatura média foi: %d\n", count);
+    printf("The highest temperature recorded was: %d°C\n", highestTemperature);
+    printf("The lowest temperature recorded was: %d°C\n", lowestTemperature);
+    printf("The average temperature recorded was: %.2f°C\n", averageTemperature);
+    printf("The number of days with temperatures below the average was: %d\n", count);
 
     return 0;
 }
