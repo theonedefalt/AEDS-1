@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void preencher(float X[], int tamanho)
+void fillArray(float X[], int size)
 {
-    float valorNegativo[10];
-    for (int i = 0; i < tamanho; i++)
+    float negativeValues[10];
+    for (int i = 0; i < size; i++)
     {
-        printf("Digite o %d numero: ", i + 1);
+        printf("Enter the %d number: ", i + 1);
         scanf("%f", &X[i]);
     }
 }
 
-void *funcaoValorNegativo(float X[], int tamanho, float Y[], int *tamanhoNovo)
+void *negativeValuesFunction(float X[], int size, float Y[], int *newSize)
 {
     int count = 0;
 
-    for (int i = 0; i < tamanho; i++)
+    for (int i = 0; i < size; i++)
     {
         if (X[i] < 0)
         {
@@ -24,29 +24,29 @@ void *funcaoValorNegativo(float X[], int tamanho, float Y[], int *tamanhoNovo)
         }
     }
 
-    *tamanhoNovo = count;
+    *newSize = count;
 }
 
-void exibir(float X[], int tamanho)
+void displayArray(float X[], int size)
 {
-    for (int i = 0; i < tamanho; i++)
+    for (int i = 0; i < size; i++)
     {
-        printf("O conteudo do vetor %d e: %2.f\n", i + 1, X[i]);
+        printf("The content of array %d is: %2.f\n", i + 1, X[i]);
     }
 }
 
 int main(void)
 {
     float X[10];
-    int tamanho = 10;
+    int size = 10;
 
-    preencher(X, tamanho);
+    fillArray(X, size);
 
-    float vetorNegativo[10];
-    int tamanhoNegativo = 0;
+    float negativeArray[10];
+    int negativeSize = 0;
 
-    funcaoValorNegativo(X, tamanho, vetorNegativo, &tamanhoNegativo);
-    exibir(vetorNegativo, tamanhoNegativo);
+    negativeValuesFunction(X, size, negativeArray, &negativeSize);
+    displayArray(negativeArray, negativeSize);
 
     return 0;
 }
