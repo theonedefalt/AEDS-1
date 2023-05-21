@@ -1,36 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void preencher_notas(float nota[], int tamanho) {
-  printf("Digite a nota dos %d alunos: ");
-  for (int i = 0; i < tamanho; i++) {
-    scanf("%f", &nota[i]);
-  }
+void fill_grades(float grade[], int size) {
+printf("Enter the grades of %d students: ");
+for (int i = 0; i < size; i++) {
+scanf("%f", &grade[i]);
+}
 }
 
-void calc_media(float nota[], int tamanho) {
-  int count = 0;
-  float media = 0, soma = 0;
-  for (int j = 0; j < tamanho; j++) {
-    soma += nota[j];
-  }
+void calculate_average(float grade[], int size) {
+int count = 0;
+float average = 0, sum = 0;
+for (int j = 0; j < size; j++) {
+sum += grade[j];
+}
 
-  media = soma / tamanho;
+average = sum / size;
 
-  for (int j = 0; j < tamanho; j++) {
-    if (nota[j] > media) {
-      count++;
-    }
-  }
-  printf("A média da turma é: %.2f\n", media);
-  printf("O resultado da contagem é: %d\n", count);
+for (int j = 0; j < size; j++) {
+if (grade[j] > average) {
+count++;
+}
+}
+printf("The class average is: %.2f\n", average);
+printf("The count result is: %d\n", count);
 }
 
 int main(void) {
-  float nota[10];
+float grade[10];
 
-  preencher_notas(nota, 10);
-  calc_media(nota, 10);
+fill_grades(grade, 10);
+calculate_average(grade, 10);
 
-  return 0;
+return 0;
 }
