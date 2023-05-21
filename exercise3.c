@@ -1,42 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void preencher(int X[], int Y[], int tamanho)
+void fillArrays(int X[], int Y[], int size)
 {
-    for (int i = 0; i < tamanho; i++)
+    for (int i = 0; i < size; i++)
     {
-        printf("Digite o %dº valor para X: ", i + 1);
+        printf("Enter the %dth value for X: ", i + 1);
         scanf("%d", &X[i]);
     }
 
-    for (int j = 0; j < tamanho; j++)
+    for (int j = 0; j < size; j++)
     {
-        printf("Digite o %dº valor para Y: ", j + 1);
+        printf("Enter the %dth value for Y: ", j + 1);
         scanf("%d", &Y[j]);
     }
 }
 
-int *intercalar(int X[], int Y[], int tamanho)
+int *interleaveArrays(int X[], int Y[], int size)
 {
-    int *novoVetor = (int*)malloc(20 * sizeof (int));   
+    int *newArray = (int*)malloc(20 * sizeof(int));
     int index = 0;
 
-    for (int i = 0; i < tamanho; i++)
+    for (int i = 0; i < size; i++)
     {
-        novoVetor[index] = Y[i];
+        newArray[index] = Y[i];
         index++;
-        novoVetor[index] = X[i];
+        newArray[index] = X[i];
         index++;
-    }   
+    }
 
-    return novoVetor;
+    return newArray;
 }
 
-void exibir(int vetor[], int tamanho)
+void displayArray(int array[], int size)
 {
-    for (int i = 0; i < tamanho; i++)
+    for (int i = 0; i < size; i++)
     {
-        printf("O conteudo do vetor na posição %d é: %d\n", i, vetor[i]);
+        printf("The content of the array at position %d is: %d\n", i, array[i]);
     }
 }
 
@@ -44,14 +44,14 @@ int main(void)
 {
     int X[10];
     int Y[10];
-    int tamanho = 10;
+    int size = 10;
 
-    preencher(X, Y, tamanho);
+    fillArrays(X, Y, size);
 
-    int *novoVetor = intercalar(X, Y, tamanho * 2);
+    int *newArray = interleaveArrays(X, Y, size * 2);
 
-    exibir(novoVetor, tamanho * 2);
+    displayArray(newArray, size * 2);
 
-    free(novoVetor);
+    free(newArray);
     return 0;
 }
